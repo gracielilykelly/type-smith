@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Dialog } from '@headlessui/react';
+import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react';
 import { WordsmithWorkoutState, Quote } from '../types';
 
 
@@ -166,11 +166,11 @@ const WordsmithWorkout: React.FC = () => {
                 </div>
                 <p className="font-mono text-gray-700 mb-4 text-right flex flex-col mt-2">
                     <span>- {state.currentQuote?.author || "Loading..."}</span><span className='italic'>{state.currentQuote?.work || "Loading..."}({state.currentQuote?.year || "Loading..."})</span>
-                       
+
                 </p>
                 {/* Textarea for user input */}
                 <textarea
-                    className="w-full p-4 border-2 border-gray-400 rounded-lg text-lg font-mono focus:outline-none focus:border-black"
+                    className="w-full p-4 border-2 border-gray-400 rounded-lg text-lg font-mono focus:outline-none focus:border-black resize-none"
                     value={state.inputText}
                     onChange={handleInputChange}
                     rows={3}
@@ -186,21 +186,23 @@ const WordsmithWorkout: React.FC = () => {
             </div>
 
             {/* Results Dialog */}
-            <Dialog open={state.dialogOpen} onClose={() => setState(prevState => ({ ...prevState, dialogOpen: false }))} className="fixed inset-0 flex items-center justify-center z-50">
-                <Dialog.Panel className="bg-white p-6 rounded shadow-lg">
-                    <Dialog.Title className="text-2xl font-bold mb-4">Test Results</Dialog.Title>
-                    <div className="text-lg">
-                        <p>Characters Typed: {state.typedCharacters}</p>
-                    </div>
-                    <div className="mt-6 flex justify-end">
-                        <button
-                            onClick={handleTryAgain}
-                            className="bg-gray-800 text-white py-2 px-4 rounded-lg"
-                        >
-                            Try Again
-                        </button>
-                    </div>
-                </Dialog.Panel>
+            <Dialog open={state.dialogOpen} onClose={() => handleTryAgain()} className="fixed inset-0 flex items-center justify-center z-50 focus:outline-none bg-black bg-opacity-60">
+                <div className="fixed inset-0 flex w-screen items-center justify-center p-4 ">
+                    <DialogPanel className="w-full max-w-md rounded-xl p-6 backdrop-blur-2xl duration-300 ease-out bg-white">
+                        <DialogTitle className="text-3xl font-bold font-serif text-gray-800 mb-4 text-center">Test Results</DialogTitle>
+                        <div className="text-lg">
+                            <p><span className='italic'>Characters Typed:</span> <span className="font-bold">{state.typedCharacters}</span></p>
+                        </div>
+                        <div className="mt-6 flex justify-center">
+                            <button
+                                onClick={handleTryAgain}
+                                className="bg-gray-900 text-gray-300 hover:text-white py-2 px-4 rounded-lg w-full hover:bg-black"
+                            >
+                                Try Again
+                            </button>
+                        </div>
+                    </DialogPanel>
+                </div>
             </Dialog>
         </div>
     );
