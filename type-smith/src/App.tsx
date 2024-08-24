@@ -2,10 +2,8 @@ import './App.css'
 import Intro from './components/Intro'
 import WordsmithWorkout from './components/WordsmithWorkout'
 
-function App() {
-
+const App: React.FC = () => {
   return (
-    <>
     <div className="min-h-screen bg-typewriterBg text-typewriterText flex items-center justify-center"
     >
       <div className="max-w-xl mx-auto p-4">
@@ -14,9 +12,7 @@ function App() {
         <WordsmithWorkout />
         </div>
         </div>
-
-    </>
   )
-}
+} 
 
-export default App
+export default App;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Dialog } from '@headlessui/react';
 
-// TODO: Get quotes
 const quotes = [
     { text: "To be, or not to be, that is the question.", author: "William Shakespeare" },
     { text: "The only thing we have to fear is fear itself.", author: "Franklin D. Roosevelt" },
@@ -9,47 +9,48 @@ const quotes = [
     { text: "That's one small step for man, one giant leap for mankind.", author: "Neil Armstrong" },
 ];
 
-const TypingTest: React.FC = () => {
+const WordsmithWorkout: React.FC = () => {
     const [currentQuote, setCurrentQuote] = useState(quotes[0]);
     const [inputText, setInputText] = useState("");
     const [timer, setTimer] = useState(60);
-    const [isActive, setisActive] = useState(false);
-    const [isCompleted, setisCompleted] = useState(false);
+    const [isTestActive, setIsTestActive] = useState(false);
+    const [isTestCompleted, setIsTestCompleted] = useState(false);
     const [typedWords, setTypedWords] = useState<number>(0);
+    const [typedCharacters, setTypedCharacters] = useState<number>(0);
     const [correctWords, setCorrectWords] = useState<number>(0);
+    const [dialogOpen, setDialogOpen] = useState(false);
     const [fullTextTyped, setFullTextTyped] = useState<string>("");
 
     const intervalRef = useRef<NodeJS.Timeout | null>(null);
-    
+
     useEffect(() => {
-        if (isActive && timer > 0) {
-            // countdownt timer
+        if (isTestActive && timer > 0) {
             intervalRef.current = setInterval(() => {
                 setTimer(prev => prev - 1);
             }, 1000);
         } else if (timer === 0) {
-            setisCompleted(true);
+            setIsTestCompleted(true);
             clearInterval(intervalRef.current!);
             intervalRef.current = null;
+            setDialogOpen(true);
         }
 
         return () => clearInterval(intervalRef.current!);
-    }, [isActive, timer]);
+    }, [isTestActive, timer]);
 
     useEffect(() => {
-        // start the test when user starts typing
-        if (inputText.length > 0 && !isActive) {
-            setisActive(true);
+        if (inputText.length > 0 && !isTestActive) {
+            setIsTestActive(true);
             setTimer(60);
         }
-    }, [inputText, isActive]);
+    }, [inputText, isTestActive]);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
         setInputText(value);
         setFullTextTyped(value);
+        setTypedCharacters(value.length);
 
-        // move on to the next quote when completed
         if (value === currentQuote.text) {
             setTypedWords(prev => prev + countWords(value));
             setCorrectWords(prev => prev + countWords(value));
@@ -57,6 +58,19 @@ const TypingTest: React.FC = () => {
             setInputText("");
             setCurrentQuote(getRandomQuote());
         }
+    };
+
+    const handleTryAgain = () => {
+        setIsTestActive(false);
+        setIsTestCompleted(false);
+        setInputText("");
+        setTimer(60);
+        setTypedWords(0);
+        setCorrectWords(0);
+        setTypedCharacters(0);
+        setFullTextTyped("");
+        setCurrentQuote(getRandomQuote());
+        setDialogOpen(false);
     };
 
     const countWords = (text: string) => {
@@ -124,21 +138,34 @@ const TypingTest: React.FC = () => {
                     value={inputText}
                     onChange={handleInputChange}
                     rows={4}
-                    disabled={isCompleted}
+                    disabled={isTestCompleted}
                 />
                 <div className="mt-4 text-lg">
                     <p className={`transition-all ${timer <= 10 ? 'text-red-500 font-bold' : 'text-black'}`}>
                         Time Remaining: {timer}s
                     </p>
-                    {isCompleted && (
-                        <div className="mt-4">
-                            <p>Completed!</p>
-                        </div>
-                    )}
                 </div>
             </div>
+
+            {/* Results Dialog */}
+            <Dialog open={dialogOpen} onClose={() => setDialogOpen(false)} className="fixed inset-0 flex items-center justify-center z-50">
+                <Dialog.Panel className="bg-white p-6 rounded shadow-lg">
+                    <Dialog.Title className="text-2xl font-bold mb-4">Test Results</Dialog.Title>
+                    <div className="text-lg">
+                        <p>Words Typed: {typedWords}</p>
+                    </div>
+                    <div className="mt-6 flex justify-end">
+                        <button
+                            onClick={handleTryAgain}
+                            className="bg-gray-800 text-white py-2 px-4 rounded-lg"
+                        >
+                            Try Again
+                        </button>
+                    </div>
+                </Dialog.Panel>
+            </Dialog>
         </div>
     );
 };
 
-export default TypingTest;
+export default WordsmithWorkout;
