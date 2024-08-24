@@ -5,7 +5,7 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-typewriterBg text-typewriterText">
       <div className="flex flex-col items-center justify-center">
-        <h1 className="text-4xl font-bold mb-4 text- font-typewriter">
+        <h1 className="text-4xl font-bold mb-4 text- font-typewriter mt-4">
           TypeSmith
         </h1>
         <div className="flex flex-col items-center">
