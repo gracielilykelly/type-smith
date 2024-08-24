@@ -1,5 +1,5 @@
 import Intro from "./components/Intro";
-import WordsmithWorkout from "./components/WordsmithWorkout";
+import WordsmithWorkout from "./components/TypingChallenge";
 
 const App: React.FC = () => {
   return (

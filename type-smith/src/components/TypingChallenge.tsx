@@ -175,7 +175,7 @@ const WordsmithWorkout: React.FC = () => {
                     onChange={handleInputChange}
                     rows={3}
                     disabled={state.isTestCompleted}
-                    placeholder='Begin typing to start the challenge...'
+                    placeholder='Begin typing to start...'
                 />
                 <div className="mt-1 text-right">
                     {/* Display remaining time */}
