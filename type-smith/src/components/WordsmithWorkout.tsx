@@ -1,0 +1,144 @@
+import React, { useState, useEffect, useRef } from 'react';
+
+// TODO: Get quotes
+const quotes = [
+    { text: "To be, or not to be, that is the question.", author: "William Shakespeare" },
+    { text: "The only thing we have to fear is fear itself.", author: "Franklin D. Roosevelt" },
+    { text: "I think, therefore I am.", author: "René Descartes" },
+    { text: "The unexamined life is not worth living.", author: "Socrates" },
+    { text: "That's one small step for man, one giant leap for mankind.", author: "Neil Armstrong" },
+];
+
+const TypingTest: React.FC = () => {
+    const [currentQuote, setCurrentQuote] = useState(quotes[0]);
+    const [inputText, setInputText] = useState("");
+    const [timer, setTimer] = useState(60);
+    const [isActive, setisActive] = useState(false);
+    const [isCompleted, setisCompleted] = useState(false);
+    const [typedWords, setTypedWords] = useState<number>(0);
+    const [correctWords, setCorrectWords] = useState<number>(0);
+    const [fullTextTyped, setFullTextTyped] = useState<string>("");
+
+    const intervalRef = useRef<NodeJS.Timeout | null>(null);
+    
+    useEffect(() => {
+        if (isActive && timer > 0) {
+            // countdownt timer
+            intervalRef.current = setInterval(() => {
+                setTimer(prev => prev - 1);
+            }, 1000);
+        } else if (timer === 0) {
+            setisCompleted(true);
+            clearInterval(intervalRef.current!);
+            intervalRef.current = null;
+        }
+
+        return () => clearInterval(intervalRef.current!);
+    }, [isActive, timer]);
+
+    useEffect(() => {
+        // start the test when user starts typing
+        if (inputText.length > 0 && !isActive) {
+            setisActive(true);
+            setTimer(60);
+        }
+    }, [inputText, isActive]);
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value;
+        setInputText(value);
+        setFullTextTyped(value);
+
+        // move on to the next quote when completed
+        if (value === currentQuote.text) {
+            setTypedWords(prev => prev + countWords(value));
+            setCorrectWords(prev => prev + countWords(value));
+            setFullTextTyped("");
+            setInputText("");
+            setCurrentQuote(getRandomQuote());
+        }
+    };
+
+    const countWords = (text: string) => {
+        return text.trim().split(/\s+/).length;
+    };
+
+    const getRandomQuote = () => {
+        const randomIndex = Math.floor(Math.random() * quotes.length);
+        return quotes[randomIndex];
+    };
+
+    return (
+        <div className="flex justify-center items-center bg-paper p-6">
+            <div className="bg-white rounded-lg shadow-lg p-8 max-w-lg w-full">
+                <h1 className="text-4xl font-serif text-gray-800 mb-2">
+                    The Wordsmith's Workout
+                    <span className="absolute top-0 right-0 animate-blink text-black border-r-4 border-black"></span>
+                </h1>
+                <p>Begin typing to start the challenge.</p>
+                <p className="font-mono text-lg text-black mb-4">
+                    <span className="whitespace-pre-wrap">
+                        {currentQuote.text.split('').map((char, index) => {
+                            let color = '';
+                            let underline = '';
+
+                            if (index < fullTextTyped.length) {
+                                if (fullTextTyped[index] === char) {
+                                    if (char === ' ') {
+                                        underline = ''; // Green underline for correct spaces
+                                    } else {
+                                        color = 'text-green-500'; // Green for correct characters
+                                    }
+                                } else {
+                                    if (char === ' ') {
+                                        underline = 'border-b-2 border-red-500'; // Red underline for incorrect spaces
+                                    } else {
+                                        color = 'text-red-500'; // Red for incorrect characters
+                                    }
+                                }
+                            } else {
+                                if (char === ' ') {
+                                    underline = ''; // Gray underline for untyped spaces
+                                } else {
+                                    color = 'text-gray-500'; // Gray for untyped characters
+                                }
+                            }
+
+                            return (
+                                <span
+                                    key={index}
+                                    className={`inline-block ${color} ${underline}`}
+                                    style={{ textDecoration: underline }}
+                                >
+                                    {char}
+                                </span>
+                            );
+                        })}
+                    </span>
+                </p>
+                <p className="font-mono text-lg text-gray-700 mb-6">
+                    — {currentQuote.author}
+                </p>
+                <textarea
+                    className="w-full p-4 border-2 border-gray-400 rounded-lg text-lg font-mono focus:outline-none focus:border-black"
+                    value={inputText}
+                    onChange={handleInputChange}
+                    rows={4}
+                    disabled={isCompleted}
+                />
+                <div className="mt-4 text-lg">
+                    <p className={`transition-all ${timer <= 10 ? 'text-red-500 font-bold' : 'text-black'}`}>
+                        Time Remaining: {timer}s
+                    </p>
+                    {isCompleted && (
+                        <div className="mt-4">
+                            <p>Completed!</p>
+                        </div>
+                    )}
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default TypingTest;
