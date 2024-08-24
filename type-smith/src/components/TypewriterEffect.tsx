@@ -23,8 +23,9 @@ const TypewriterEffect: React.FC<TypewriterEffectProps> = ({ text, speed = 120 }
     }, [index, text, speed]);
 
     return (
-        <h1 className="text-4xl font-bold mb-6 text-center font-typewriter">
+        <h1 className="text-4xl font-bold text-center font-typewriter">
             {displayedText}
+            <span className="blinking-cursor">|</span>
         </h1>
     );
 };
