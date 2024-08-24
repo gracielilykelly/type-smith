@@ -1,0 +1,430 @@
+{
+  "quotes": [
+    {
+      "text": "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
+      "author": "Jane Austen",
+      "work": "Pride and Prejudice",
+      "year": 1813
+    },
+    {
+      "text": "All happy families are alike; each unhappy family is unhappy in its own way.",
+      "author": "Leo Tolstoy",
+      "work": "Anna Karenina",
+      "year": 1877
+    },
+    {
+      "text": "Call me Ishmael.",
+      "author": "Herman Melville",
+      "work": "Moby-Dick",
+      "year": 1851
+    },
+    {
+      "text": "It was the best of times, it was the worst of times.",
+      "author": "Charles Dickens",
+      "work": "A Tale of Two Cities",
+      "year": 1859
+    },
+    {
+      "text": "To be, or not to be, that is the question.",
+      "author": "William Shakespeare",
+      "work": "Hamlet",
+      "year": 1603
+    },
+    {
+      "text": "In my younger and more vulnerable years my father gave me some advice that I've been turning over in my mind ever since.",
+      "author": "F. Scott Fitzgerald",
+      "work": "The Great Gatsby",
+      "year": 1925
+    },
+    {
+      "text": "It was a bright cold day in April, and the clocks were striking thirteen.",
+      "author": "George Orwell",
+      "work": "1984",
+      "year": 1949
+    },
+    {
+      "text": "Happy families are all alike; every unhappy family is unhappy in its own way.",
+      "author": "Leo Tolstoy",
+      "work": "Anna Karenina",
+      "year": 1877
+    },
+    {
+      "text": "The only way out of the labyrinth of suffering is to forgive.",
+      "author": "John Green",
+      "work": "Looking for Alaska",
+      "year": 2005
+    },
+    {
+      "text": "Not all those who wander are lost.",
+      "author": "J.R.R. Tolkien",
+      "work": "The Fellowship of the Ring",
+      "year": 1954
+    },
+    {
+      "text": "The man in black fled across the desert, and the gunslinger followed.",
+      "author": "Stephen King",
+      "work": "The Gunslinger",
+      "year": 1982
+    },
+    {
+      "text": "You forget what you want to remember, and you remember what you want to forget.",
+      "author": "Cormac McCarthy",
+      "work": "The Road",
+      "year": 2006
+    },
+    {
+      "text": "It was love at first sight, at last sight, at ever and ever sight.",
+      "author": "Vladimir Nabokov",
+      "work": "Lolita",
+      "year": 1955
+    },
+    {
+      "text": "All animals are equal, but some animals are more equal than others.",
+      "author": "George Orwell",
+      "work": "Animal Farm",
+      "year": 1945
+    },
+    {
+      "text": "So we beat on, boats against the current, borne back ceaselessly into the past.",
+      "author": "F. Scott Fitzgerald",
+      "work": "The Great Gatsby",
+      "year": 1925
+    },
+    {
+      "text": "Whatever our souls are made of, his and mine are the same.",
+      "author": "Emily Brontë",
+      "work": "Wuthering Heights",
+      "year": 1847
+    },
+    {
+      "text": "Beware; for I am fearless, and therefore powerful.",
+      "author": "Mary Shelley",
+      "work": "Frankenstein",
+      "year": 1818
+    },
+    {
+      "text": "And, when you want something, all the universe conspires in helping you to achieve it.",
+      "author": "Paulo Coelho",
+      "work": "The Alchemist",
+      "year": 1988
+    },
+    {
+      "text": "There is no greater agony than bearing an untold story inside you.",
+      "author": "Maya Angelou",
+      "work": "I Know Why the Caged Bird Sings",
+      "year": 1969
+    },
+    {
+      "text": "We accept the love we think we deserve.",
+      "author": "Stephen Chbosky",
+      "work": "The Perks of Being a Wallflower",
+      "year": 1999
+    },
+    {
+      "text": "It is never too late to be what you might have been.",
+      "author": "George Eliot",
+      "work": "Middlemarch",
+      "year": 1871
+    },
+    {
+      "text": "All we have to decide is what to do with the time that is given us.",
+      "author": "J.R.R. Tolkien",
+      "work": "The Fellowship of the Ring",
+      "year": 1954
+    },
+    {
+      "text": "I am not afraid of storms, for I am learning how to sail my ship.",
+      "author": "Louisa May Alcott",
+      "work": "Little Women",
+      "year": 1868
+    },
+    {
+      "text": "There is no friend as loyal as a book.",
+      "author": "Ernest Hemingway",
+      "work": "A Moveable Feast",
+      "year": 1964
+    },
+    {
+      "text": "The world breaks everyone, and afterward, many are strong at the broken places.",
+      "author": "Ernest Hemingway",
+      "work": "A Farewell to Arms",
+      "year": 1929
+    },
+    {
+      "text": "The only lies for which we are truly punished are those we tell ourselves.",
+      "author": "V.S. Naipaul",
+      "work": "In a Free State",
+      "year": 1971
+    },
+    {
+      "text": "Not all those who wander are lost.",
+      "author": "J.R.R. Tolkien",
+      "work": "The Fellowship of the Ring",
+      "year": 1954
+    },
+    {
+      "text": "You have to die a few times before you can really live.",
+      "author": "Charles Bukowski",
+      "work": "The People Look Like Flowers at Last",
+      "year": 2007
+    },
+    {
+      "text": "It’s no use going back to yesterday, because I was a different person then.",
+      "author": "Lewis Carroll",
+      "work": "Alice's Adventures in Wonderland",
+      "year": 1865
+    },
+    {
+      "text": "A mind needs books as a sword needs a whetstone, if it is to keep its edge.",
+      "author": "George R.R. Martin",
+      "work": "A Game of Thrones",
+      "year": 1996
+    },
+    {
+      "text": "We are all in the gutter, but some of us are looking at the stars.",
+      "author": "Oscar Wilde",
+      "work": "Lady Windermere's Fan",
+      "year": 1892
+    },
+    {
+      "text": "The unexamined life is not worth living.",
+      "author": "Socrates",
+      "work": "Apology",
+      "year": "399 BC"
+    },
+    {
+      "text": "So, we beat on, boats against the current, borne back ceaselessly into the past.",
+      "author": "F. Scott Fitzgerald",
+      "work": "The Great Gatsby",
+      "year": 1925
+    },
+    {
+      "text": "The only way out of the labyrinth of suffering is to forgive.",
+      "author": "John Green",
+      "work": "Looking for Alaska",
+      "year": 2005
+    },
+    {
+      "text": "A room without books is like a body without a soul.",
+      "author": "Marcus Tullius Cicero",
+      "work": "Pro Archia Poeta",
+      "year": "62 BC"
+    },
+    {
+      "text": "You never really understand a person until you consider things from his point of view.",
+      "author": "Harper Lee",
+      "work": "To Kill a Mockingbird",
+      "year": 1960
+    },
+    {
+      "text": "It's no wonder that truth is stranger than fiction. Fiction has to make sense.",
+      "author": "Mark Twain",
+      "work": "Following the Equator",
+      "year": 1897
+    },
+    {
+      "text": "The only thing necessary for the triumph of evil is for good men to do nothing.",
+      "author": "Edmund Burke",
+      "work": "Thoughts on the Cause of the Present Discontents",
+      "year": 1770
+    },
+    {
+      "text": "In the end, we will remember not the words of our enemies, but the silence of our friends.",
+      "author": "Martin Luther King Jr.",
+      "work": "Letter from Birmingham Jail",
+      "year": 1963
+    },
+    {
+      "text": "The only limit to our realization of tomorrow is our doubts of today.",
+      "author": "Franklin D. Roosevelt",
+      "work": "Address at White House Correspondents' Dinner",
+      "year": 1939
+    },
+    {
+      "text": "The purpose of life is not to be happy. It is to be useful, to be honorable, to be compassionate, to have it make some difference that you have lived and lived well.",
+      "author": "Ralph Waldo Emerson",
+      "work": "Miscellanies; Embracing Nature, Addresses, and Lectures",
+      "year": 1868
+    },
+    {
+      "text": "The journey of a thousand miles begins with one step.",
+      "author": "Lao Tzu",
+      "work": "Tao Te Ching",
+      "year": "6th century BC"
+    },
+    {
+      "text": "That which does not kill us makes us stronger.",
+      "author": "Friedrich Nietzsche",
+      "work": "Twilight of the Idols",
+      "year": 1888
+    },
+    {
+      "text": "The only thing we have to fear is fear itself.",
+      "author": "Franklin D. Roosevelt",
+      "work": "First Inaugural Address",
+      "year": 1933
+    },
+    {
+      "text": "The unexamined life is not worth living.",
+      "author": "Socrates",
+      "work": "Apology",
+      "year": "399 BC"
+    },
+    {
+      "text": "The greatest glory in living lies not in never falling, but in rising every time we fall.",
+      "author": "Nelson Mandela",
+      "work": "Long Walk to Freedom",
+      "year": 1994
+    },
+    {
+      "text": "To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment.",
+      "author": "Ralph Waldo Emerson",
+      "work": "Self-Reliance",
+      "year": 1841
+    },
+    {
+      "text": "If you tell the truth, you don't have to remember anything.",
+      "author": "Mark Twain",
+      "work": "Following the Equator",
+      "year": 1897
+    },
+    {
+      "text": "To live is the rarest thing in the world. Most people exist, that is all.",
+      "author": "Oscar Wilde",
+      "work": "The Soul of Man under Socialism",
+      "year": 1891
+    },
+    {
+      "text": "Imagination is more important than knowledge. For knowledge is limited, whereas imagination embraces the entire world, stimulating progress, giving birth to evolution.",
+      "author": "Albert Einstein",
+      "work": "What Life Means to Einstein",
+      "year": 1929
+    },
+    {
+      "text": "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+      "author": "Winston S. Churchill",
+      "work": "The Collected Essays of Winston Churchill",
+      "year": 1949
+    },
+    {
+      "text": "It is not in the stars to hold our destiny but in ourselves.",
+      "author": "William Shakespeare",
+      "work": "Julius Caesar",
+      "year": 1599
+    },
+    {
+      "text": "Life is what happens when you're busy making other plans.",
+      "author": "John Lennon",
+      "work": "Beautiful Boy (Darling Boy)",
+      "year": 1980
+    },
+    {
+      "text": "Do not go where the path may lead, go instead where there is no path and leave a trail.",
+      "author": "Ralph Waldo Emerson",
+      "work": "Essays, First Series",
+      "year": 1841
+    },
+    {
+      "text": "It is never too late to be what you might have been.",
+      "author": "George Eliot",
+      "work": "Middlemarch",
+      "year": 1871
+    },
+    {
+      "text": "There is no friend as loyal as a book.",
+      "author": "Ernest Hemingway",
+      "work": "A Moveable Feast",
+      "year": 1964
+    },
+    {
+      "text": "In three words I can sum up everything I've learned about life: it goes on.",
+      "author": "Robert Frost",
+      "work": "The Poetry of Robert Frost",
+      "year": 1979
+    },
+    {
+      "text": "The truth is rarely pure and never simple.",
+      "author": "Oscar Wilde",
+      "work": "The Importance of Being Earnest",
+      "year": 1895
+    },
+    {
+      "text": "We are all in the gutter, but some of us are looking at the stars.",
+      "author": "Oscar Wilde",
+      "work": "Lady Windermere's Fan",
+      "year": 1892
+    },
+    {
+      "text": "I have not failed. I've just found 10,000 ways that won't work.",
+      "author": "Thomas Edison",
+      "work": "Interview with Harper's Magazine",
+      "year": 1890
+    },
+    {
+      "text": "The journey of a thousand miles begins with one step.",
+      "author": "Lao Tzu",
+      "work": "Tao Te Ching",
+      "year": "6th century BC"
+    },
+    {
+      "text": "It is better to be hated for what you are than to be loved for what you are not.",
+      "author": "André Gide",
+      "work": "Autumn Leaves",
+      "year": 1950
+    },
+    {
+      "text": "In the end, we will remember not the words of our enemies, but the silence of our friends.",
+      "author": "Martin Luther King Jr.",
+      "work": "Letter from Birmingham Jail",
+      "year": 1963
+    },
+    {
+      "text": "To love is to act.",
+      "author": "Victor Hugo",
+      "work": "Les Misérables",
+      "year": 1862
+    },
+    {
+      "text": "There is nothing impossible to him who will try.",
+      "author": "Alexander the Great",
+      "work": "Letter to Parmenion",
+      "year": "330 BC"
+    },
+    {
+      "text": "All the world's a stage, and all the men and women merely players.",
+      "author": "William Shakespeare",
+      "work": "As You Like It",
+      "year": 1599
+    },
+    {
+      "text": "The way to get started is to quit talking and begin doing.",
+      "author": "Walt Disney",
+      "work": "TV Interview",
+      "year": 1954
+    },
+    {
+      "text": "The only thing necessary for the triumph of evil is for good men to do nothing.",
+      "author": "Edmund Burke",
+      "work": "Thoughts on the Cause of the Present Discontents",
+      "year": 1770
+    },
+    {
+      "text": "Life is what happens when you're busy making other plans.",
+      "author": "John Lennon",
+      "work": "Beautiful Boy (Darling Boy)",
+      "year": 1980
+    },
+    {
+      "text": "The best way to predict the future is to invent it.",
+      "author": "Alan Kay",
+      "work": "MIT Technology Review",
+      "year": 1989
+    },
+    {
+      "text": "The purpose of our lives is to be happy.",
+      "author": "Dalai Lama",
+      "work": "The Art of Happiness",
+      "year": 1998
+    }
+  ]
+}
