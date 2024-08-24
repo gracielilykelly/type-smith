@@ -15,9 +15,7 @@ const WordsmithWorkout: React.FC = () => {
     const [timer, setTimer] = useState(60);
     const [isTestActive, setIsTestActive] = useState(false);
     const [isTestCompleted, setIsTestCompleted] = useState(false);
-    const [typedWords, setTypedWords] = useState<number>(0);
     const [typedCharacters, setTypedCharacters] = useState<number>(0);
-    const [correctWords, setCorrectWords] = useState<number>(0);
     const [dialogOpen, setDialogOpen] = useState(false);
     const [fullTextTyped, setFullTextTyped] = useState<string>("");
 
@@ -45,19 +43,21 @@ const WordsmithWorkout: React.FC = () => {
         }
     }, [inputText, isTestActive]);
 
+    useEffect(() => {
+        if (typedCharacters >= currentQuote.text.length) {
+            // Move to next quote
+            setInputText("");
+            setFullTextTyped("");
+            setTypedCharacters(0);
+            setCurrentQuote(getRandomQuote());
+        }
+    }, [typedCharacters]);
+
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
         setInputText(value);
         setFullTextTyped(value);
         setTypedCharacters(value.length);
-
-        if (value === currentQuote.text) {
-            setTypedWords(prev => prev + countWords(value));
-            setCorrectWords(prev => prev + countWords(value));
-            setFullTextTyped("");
-            setInputText("");
-            setCurrentQuote(getRandomQuote());
-        }
     };
 
     const handleTryAgain = () => {
@@ -65,16 +65,10 @@ const WordsmithWorkout: React.FC = () => {
         setIsTestCompleted(false);
         setInputText("");
         setTimer(60);
-        setTypedWords(0);
-        setCorrectWords(0);
         setTypedCharacters(0);
         setFullTextTyped("");
         setCurrentQuote(getRandomQuote());
         setDialogOpen(false);
-    };
-
-    const countWords = (text: string) => {
-        return text.trim().split(/\s+/).length;
     };
 
     const getRandomQuote = () => {
@@ -82,57 +76,52 @@ const WordsmithWorkout: React.FC = () => {
         return quotes[randomIndex];
     };
 
+    const renderQuote = () => {
+        const quoteChars = currentQuote.text.split('');
+        const typedChars = fullTextTyped.split('');
+
+        return quoteChars.map((char, index) => {
+            let color = 'text-gray-500';
+            let underline = '';
+
+            if (index < typedChars.length) {
+                if (typedChars[index] === char) {
+                    color = char === ' ' ? 'text-gray-500' : 'text-green-500';
+                } else {
+                    color = char === ' ' ? 'text-red-500' : 'text-red-500';
+                    underline = char === ' ' ? 'border-b-2 border-red-500' : '';
+                }
+            }
+
+            return (
+                <span
+                    key={index}
+                    className={`inline ${color} ${underline}`}
+                    style={char === ' ' && underline ? { textDecoration: 'underline', textDecorationColor: 'red' } : {}}
+                >
+                    {char}
+                </span>
+            );
+        });
+    };
+
     return (
         <div className="flex justify-center items-center bg-paper p-6">
             <div className="bg-white rounded-lg shadow-lg p-8 max-w-lg w-full">
-                <h1 className="text-4xl font-serif text-gray-800 mb-2">
-                    The Wordsmith's Workout
-                    <span className="absolute top-0 right-0 animate-blink text-black border-r-4 border-black"></span>
-                </h1>
-                <p>Begin typing to start the challenge.</p>
-                <p className="font-mono text-lg text-black mb-4">
-                    <span className="whitespace-pre-wrap">
-                        {currentQuote.text.split('').map((char, index) => {
-                            let color = '';
-                            let underline = '';
-
-                            if (index < fullTextTyped.length) {
-                                if (fullTextTyped[index] === char) {
-                                    if (char === ' ') {
-                                        underline = ''; // Green underline for correct spaces
-                                    } else {
-                                        color = 'text-green-500'; // Green for correct characters
-                                    }
-                                } else {
-                                    if (char === ' ') {
-                                        underline = 'border-b-2 border-red-500'; // Red underline for incorrect spaces
-                                    } else {
-                                        color = 'text-red-500'; // Red for incorrect characters
-                                    }
-                                }
-                            } else {
-                                if (char === ' ') {
-                                    underline = ''; // Gray underline for untyped spaces
-                                } else {
-                                    color = 'text-gray-500'; // Gray for untyped characters
-                                }
-                            }
-
-                            return (
-                                <span
-                                    key={index}
-                                    className={`inline-block ${color} ${underline}`}
-                                    style={{ textDecoration: underline }}
-                                >
-                                    {char}
-                                </span>
-                            );
-                        })}
-                    </span>
-                </p>
+                <p className="text-2xl font-serif divide-dashed">Begin typing to start the challenge.</p>
+                <div className="font-mono text-lg text-black mb-4 mt-4">
+                    {/* Quote to Type */}
+                    <blockquote className="text-xl italic font-semibold text-gray-900">
+                        <svg className="w-8 h-8 text-gray-400 dark:text-gray-600 mb-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 14">
+                            <path d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z" />
+                        </svg>
+                        {renderQuote()}
+                    </blockquote>
+                </div>
                 <p className="font-mono text-lg text-gray-700 mb-6">
                     — {currentQuote.author}
                 </p>
+                {/* Test Textarea */}
                 <textarea
                     className="w-full p-4 border-2 border-gray-400 rounded-lg text-lg font-mono focus:outline-none focus:border-black"
                     value={inputText}
@@ -152,7 +141,7 @@ const WordsmithWorkout: React.FC = () => {
                 <Dialog.Panel className="bg-white p-6 rounded shadow-lg">
                     <Dialog.Title className="text-2xl font-bold mb-4">Test Results</Dialog.Title>
                     <div className="text-lg">
-                        <p>Words Typed: {typedWords}</p>
+                        <p>Characters Typed: {typedCharacters}</p>
                     </div>
                     <div className="mt-6 flex justify-end">
                         <button
