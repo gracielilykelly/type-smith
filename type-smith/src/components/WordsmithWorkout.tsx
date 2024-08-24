@@ -81,7 +81,7 @@ const WordsmithWorkout: React.FC = () => {
         const typedChars = fullTextTyped.split('');
 
         return quoteChars.map((char, index) => {
-            let color = 'text-gray-500';
+            let color = 'text-gray-700';
             let underline = '';
 
             if (index < typedChars.length) {
@@ -106,19 +106,15 @@ const WordsmithWorkout: React.FC = () => {
     };
 
     return (
-        <div className="flex justify-center items-center bg-paper p-6">
+        <div className="flex justify-center items-center bg-paper p-4 w-full">
             <div className="bg-white rounded-lg shadow-lg p-8 max-w-lg w-full">
-                <p className="text-2xl font-serif divide-dashed">Begin typing to start the challenge.</p>
-                <div className="font-mono text-lg text-black mb-4 mt-4">
+                <div className="font-mono text-lg text-black mb-2 mt-2">
                     {/* Quote to Type */}
-                    <blockquote className="text-xl italic font-semibold text-gray-900">
-                        <svg className="w-8 h-8 text-gray-400 dark:text-gray-600 mb-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 14">
-                            <path d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z" />
-                        </svg>
+                    <blockquote className="text-xl font-semibold text-gray-800 text-center">
                         {renderQuote()}
                     </blockquote>
                 </div>
-                <p className="font-mono text-lg text-gray-700 mb-6">
+                <p className="font-mono text-gray-700 mb-4 text-right">
                     — {currentQuote.author}
                 </p>
                 {/* Test Textarea */}
@@ -126,11 +122,12 @@ const WordsmithWorkout: React.FC = () => {
                     className="w-full p-4 border-2 border-gray-400 rounded-lg text-lg font-mono focus:outline-none focus:border-black"
                     value={inputText}
                     onChange={handleInputChange}
-                    rows={4}
+                    rows={3}
                     disabled={isTestCompleted}
+                    placeholder='Begin typing to start the challenge...'
                 />
-                <div className="mt-4 text-lg">
-                    <p className={`transition-all ${timer <= 10 ? 'text-red-500 font-bold' : 'text-black'}`}>
+                <div className="mt-1 text-right">
+                    <p className={`transition-all ${isTestActive ? 'font-bold' : ''} ${timer <= 10 ? 'text-red-500' : 'text-black'}`}>
                         Time Remaining: {timer}s
                     </p>
                 </div>
