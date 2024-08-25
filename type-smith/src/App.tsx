@@ -10,7 +10,7 @@ const App: React.FC = () => {
         <div className="flex flex-col items-center">
           <img
             className="mb-4"
-            src="/public/typewriter.png"
+            src="typewriter.png"
             alt="Sketch of typewriter"
             width="160px"
           />
