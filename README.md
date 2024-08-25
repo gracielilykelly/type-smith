@@ -4,7 +4,7 @@
 </div>
 
 ## Description
-Typesmith is a typing speed test app designed to help you improve your typing skills by typing out quotes by literary greats. It calculates your typing speed (wpm) and accuracy. This application provides a dynamic typing test experience with real-time feedback with error/success highlighting.
+TypeSmith is a React-based typing speed test application that helps you improve your typing skills by typing out quotes from literary greats. The app measures typing speed (WPM) and accuracy, providing real-time feedback with visual error and success highlighting.
 
 ## Features
 - **Typing Challenge**: Type out random quotes to test and improve your typing speed and accuracy.
