@@ -6,14 +6,19 @@ export interface Quote {
     year: number;
 }
 
-export interface WordsmithWorkoutState {
+export interface TypingChallengeState {
     quotes: Quote[];
     currentQuote: Quote | null;
     inputText: string;
     timer: number;
+    errors: number;
     isTestActive: boolean;
     isTestCompleted: boolean;
     typedCharacters: number;
     dialogOpen: boolean;
     fullTextTyped: string;
+    correctCharacters: number;
+    totalTypedCharacters: number;
+    totalCorrectCharacters: number;
+    totalErrors: number;
 }

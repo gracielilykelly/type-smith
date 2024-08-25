@@ -5,7 +5,7 @@ interface TypewriterEffectProps {
     speed?: number;
 }
 
-const TypewriterEffect: React.FC<TypewriterEffectProps> = ({ text, speed = 120 }) => {
+const TypewriterEffect: React.FC<TypewriterEffectProps> = ({ text, speed = 80 }) => {
     const [displayedText, setDisplayedText] = useState<string>('');
     const [index, setIndex] = useState<number>(0);
 
@@ -25,7 +25,6 @@ const TypewriterEffect: React.FC<TypewriterEffectProps> = ({ text, speed = 120 }
     return (
         <h1 className="text-4xl font-bold text-center font-typewriter">
             {displayedText}
-            <span className="blinking-cursor">|</span>
         </h1>
     );
 };

@@ -1,13 +1,12 @@
+import Header from "./components/Header";
 import Intro from "./components/Intro";
-import WordsmithWorkout from "./components/WordsmithWorkout";
+import WordsmithWorkout from "./components/TypingChallenge";
 
 const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-typewriterBg text-typewriterText">
+      <Header />
       <div className="flex flex-col items-center justify-center">
-        <h1 className="text-4xl font-bold mb-4 text- font-typewriter mt-4">
-          TypeSmith
-        </h1>
         <div className="flex flex-col items-center">
           <img
             className="mb-4"
@@ -15,7 +14,9 @@ const App: React.FC = () => {
             alt="Sketch of typewriter"
             width="160px"
           />
+          <div className="max-w-xl mx-auto p-4 w-full">
           <Intro />
+          </div>
         </div>
         <div className="max-w-xl mx-auto p-4 w-full">
           <WordsmithWorkout />
