@@ -14,7 +14,9 @@ const App: React.FC = () => {
             alt="Sketch of typewriter"
             width="160px"
           />
+          <div className="max-w-xl mx-auto p-4 w-full">
           <Intro />
+          </div>
         </div>
         <div className="max-w-xl mx-auto p-4 w-full">
           <WordsmithWorkout />

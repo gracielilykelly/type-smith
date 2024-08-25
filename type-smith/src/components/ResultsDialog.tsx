@@ -4,20 +4,16 @@ import { Dialog } from '@headlessui/react';
 interface TestResultsDialogProps {
     isOpen: boolean;
     onClose: () => void;
-    typedCharacters: number;
-    grossWPM: number;
-    accuracy: number;
-    netWPM: number;
+    wpm: number;
+    accuracy: string | number;
     handleTryAgain: () => void;
 }
 
 const TestResultsDialog: React.FC<TestResultsDialogProps> = ({
     isOpen,
     onClose,
-    typedCharacters,
-    grossWPM,
+    wpm,
     accuracy,
-    netWPM,
     handleTryAgain,
 }) => {
     return (
@@ -31,22 +27,14 @@ const TestResultsDialog: React.FC<TestResultsDialogProps> = ({
                     <Dialog.Title className="text-3xl font-bold font-serif text-gray-800 mb-4 text-center">
                         Test Results
                     </Dialog.Title>
-                    <div className="text-lg">
+                    <div className="text-lg text-center">
                         <p>
-                            <span className="italic">Characters Typed:</span>{' '}
-                            <span className="font-bold">{typedCharacters}</span>
-                        </p>
-                        <p>
-                            <span className="italic">Gross WPM:</span>{' '}
-                            <span className="font-bold">{grossWPM}</span>
+                            <span className="italic">WPM:</span>{' '}
+                            <span className="font-bold">{wpm}</span>
                         </p>
                         <p>
                             <span className="italic">Accuracy:</span>{' '}
                             <span className="font-bold">{accuracy}%</span>
-                        </p>
-                        <p>
-                            <span className="italic">Net WPM:</span>{' '}
-                            <span className="font-bold">{netWPM}</span>
                         </p>
                     </div>
                     <div className="mt-6 flex justify-center">
