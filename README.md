@@ -18,5 +18,5 @@ Typesmith is a typing speed test app designed to help you improve your typing sk
 - Tailwind CSS
 - Vite
 
-## Demo
+## Deployed App
 App can be viewed [here](https://type-smith.vercel.app/)
