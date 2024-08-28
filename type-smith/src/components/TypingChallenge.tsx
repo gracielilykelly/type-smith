@@ -191,8 +191,8 @@ const TypingChallenge: React.FC = () => {
     };
 
     return (
-        <div className="flex justify-center items-center bg-paper p-4 w-full">
-            <div className="bg-white rounded-lg shadow-lg p-8 max-w-lg w-full">
+        <div className="max-w-xl mx-auto p-4 w-full bg-white rounded-lg shadow-lg mb-2 text-left">
+            <div className="p-8 max-w-lg w-full">
                 <div className="font-mono text-lg text-black mb-2 mt-2">
                     <blockquote className="text-xl font-semibold text-gray-800 text-left">
                         {state.currentQuote ? renderQuote() : "Loading..."}
